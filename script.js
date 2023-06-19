@@ -27,13 +27,33 @@ function generatePassword() {
  
     return "";
   }
-  
-  var passwordLength = 8 - 128;
-  var password = "";
-  for (var i = 0; i <= passwordLength; i++) {
-    var randomNumber = Math.floor(Math.random() * chars.length);
-    password += chars.substring(randomNumber, randomNumber + 1);
-  }
 
+  var validCharacterSelection =[]
+
+  var acceptUpper = confirm("Do you like to have Upper case characters?");
+  var acceptSpecial = confirm("Do you like to have Special Characters?");
+  var acceptNumbers = confirm("Do you like to have Numbers?");
+  var acceptLower = confirm("Do you like to have Lower case characters?");
+  if(acceptLower){
+    validCharacterSelection += charsLowercase // validCharacterSelection = validCharacterSelection + charsLowercase
+  }
+  if(acceptSpecial){
+    validCharacterSelection += specialCharacters
+  }
+  if(acceptUpper){
+    validCharacterSelection += upperCase
+  }
+  if(acceptNumbers){
+    validCharacterSelection += charsNumbers
+  }
+  console.log(validCharacterSelection)
+
+
+  var password = "";
+  for (var i = 0; i < passwordLength; i++) {
+    var randomNumber = Math.floor(Math.random() * validCharacterSelection.length);
+    password += validCharacterSelection.substring(randomNumber, randomNumber + 1);
+  }
+  console.log(password)
 }
 // generatePassword();
