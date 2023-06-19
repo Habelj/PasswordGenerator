@@ -55,5 +55,6 @@ function generatePassword() {
     password += validCharacterSelection.substring(randomNumber, randomNumber + 1);
   }
   console.log(password)
+  return password;
 }
 // generatePassword();
