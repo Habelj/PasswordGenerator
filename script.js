@@ -47,7 +47,10 @@ function generatePassword() {
     validCharacterSelection += charsNumbers
   }
   console.log(validCharacterSelection)
-
+  if(validCharacterSelection.length === 0){
+    alert("Please choose a minimum of one option to generate password")
+    return "";
+  }
 
   var password = "";
   for (var i = 0; i < passwordLength; i++) {
