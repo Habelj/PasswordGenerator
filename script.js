@@ -4,12 +4,8 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password"); //querySelector to target text area
-//var passwordTextarea = document.getElementById("password"); //getElementByID methid to target textarea
-  //document.getElementById("password").value = password; // Using value attribute to display password generated.
-
+  var passwordText = document.querySelector("#password"); 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
@@ -22,20 +18,20 @@ function generatePassword() {
   var upperCase ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   var passwordLength = parseInt(prompt("enter password length"))
-  if(passwordLength < 8 || passwordLength > 126 || isNaN(passwordLength)){
-    alert ("Please enter a valid length between 8 and 126")
+  if(passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)){
+    alert ("Please enter a valid length between 8 and 128")
  
     return "";
   }
 
   var validCharacterSelection =[]
 
-  var acceptUpper = confirm("Do you like to have Upper case characters?");
-  var acceptSpecial = confirm("Do you like to have Special Characters?");
-  var acceptNumbers = confirm("Do you like to have Numbers?");
-  var acceptLower = confirm("Do you like to have Lower case characters?");
+  var acceptUpper = confirm("Would you like to include Upper case characters?");
+  var acceptSpecial = confirm("Would you like to include Special Characters?");
+  var acceptNumbers = confirm("Would you like to include Numbers?");
+  var acceptLower = confirm("Would you like to include lower case characters?");
   if(acceptLower){
-    validCharacterSelection += charsLowercase // validCharacterSelection = validCharacterSelection + charsLowercase
+    validCharacterSelection += charsLowercase //validCharacterSelection = validCharacterSelection + charsLowercase
   }
   if(acceptSpecial){
     validCharacterSelection += specialCharacters
